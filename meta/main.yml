@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  role_name: repos
+  description: |
+    This role configure linux repos for apt/yum/dnf packages management systems.
+  author: Dany GINHOUX
+  company: dginhoux
+  license: MIT
+  min_ansible_version: "2.13"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - apt
+    - yum
+    - dnf
+    - repos
+
+dependencies: []

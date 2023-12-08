@@ -1,0 +1,753 @@
+---
+repos_cleanup_existing: true
+
+
+repos_dl_pkgs_list: []
+repos_dl_pkgs_list_host: []
+repos_dl_pkgs_list_group: []
+# repos_dl_pkgs_list:
+#   fedora:
+#     "36":
+#       - name: rpmfusion-free-release
+#         url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+#       - name: rpmfusion-nonfree-release
+#         url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
+#     "37":
+#       - name: rpmfusion-free-release
+#         url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-37.noarch.rpm
+#       - name: rpmfusion-nonfree-release
+#         url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
+#     "38":
+#       - name: rpmfusion-free-release
+#         url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-38.noarch.rpm
+#       - name: rpmfusion-nonfree-release
+#         url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm
+
+
+repos_list: []
+repos_list_host: []
+repos_list_group: []
+# repos_list:
+#   debian:
+#     buster:
+#       - name: debian-system
+#         repo: deb https://ftp.debian.org/debian buster main contrib non-free
+#         state: present
+#         filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/buster/Release.gpg
+#       # - name: debian-system-src
+#       #   repo: deb-src https://ftp.debian.org/debian buster main
+#       #   state: present
+#       #   filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/buster/Release.gpg
+#       - name: debian-updates
+#         repo: deb https://ftp.debian.org/debian buster-updates main contrib non-free
+#         state: present
+#         filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/buster/Release.gpg
+#       # - name: debian-updates-src
+#       #   repo: deb-src https://ftp.debian.org/debian buster-updates main
+#       #   state: present
+#       #   filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/{{ ansible_distribution_release | lower }}/Release.gpg
+#       - name: debian-backports
+#         repo: deb https://ftp.debian.org/debian buster-backports main contrib non-free
+#         state: present
+#         filename: debian-backports
+#       # - name: debian-backports-src
+#       #   repo: deb-src https://ftp.debian.org/debian buster-backports main
+#       #   state: present
+#       #   filename: debian-backports
+#       - name: debian-security
+#         repo: deb https://security.debian.org buster/updates main contrib non-free
+#         state: present
+#         filename: debian-security
+#       # - name: debian-security-src
+#       #   repo: deb-src https://security.debian.org buster/updates main
+#       #   state: present
+#       #   filename: debian-security
+#       # - name: gluster
+#       #   repo: deb https://download.gluster.org/pub/gluster/glusterfs/9/LATEST/Debian/buster/amd64/apt buster main
+#       #   state: present
+#       #   filename: gluster
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: https://download.gluster.org/pub/gluster/glusterfs/9/rsa.pub
+
+#     bullseye:
+#       - name: debian-system
+#         repo: deb https://deb.debian.org/debian bullseye main contrib non-free
+#         state: present
+#         filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bullseye/Release.gpg
+#       # - name: debian-system-src
+#       #   repo: deb-src https://ftp.debian.org/debian bullseye main
+#       #   state: present
+#       #   filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bullseye/Release.gpg
+#       - name: debian-updates
+#         repo: deb https://deb.debian.org/debian bullseye-updates main contrib non-free
+#         state: present
+#         filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bullseye/Release.gpg
+#       # - name: debian-updates-src
+#       #   repo: deb-src https://ftp.debian.org/debian bullseye-updates main
+#       #   state: present
+#       #   filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bullseye/Release.gpg
+#       - name: debian-backports
+#         repo: deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+#         state: present
+#         filename: debian-backports
+#       # - name: debian-backports-src
+#       #   repo: deb-src https://ftp.debian.org/debian bullseye-backports main
+#       #   state: present
+#       #   filename: debian-backports
+#       - name: debian-security
+#         repo: deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+#         # repo: deb https://security.debian.org bullseye-updates main
+#         state: present
+#         filename: debian-security
+#       # - name: debian-security-src
+#       #   repo: deb-src https://security.debian.org bullseye-updates main
+#       #   state: present
+#       #   filename: debian-security
+#       # - name: gluster
+#       #   repo: deb https://download.gluster.org/pub/gluster/glusterfs/9/LATEST/Debian/bullseye/amd64/apt bullseye main
+#       #   state: present
+#       #   filename: gluster
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: https://download.gluster.org/pub/gluster/glusterfs/9/rsa.pub
+
+#     bookworm:
+#       - name: debian-system
+#         repo: deb https://deb.debian.org/debian bookworm main contrib non-free
+#         state: present
+#         filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bookworm/Release.gpg
+#       # - name: debian-system-src
+#       #   repo: deb-src https://ftp.debian.org/debian bookworm main
+#       #   state: present
+#       #   filename: debian-system
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bookworm/Release.gpg
+#       - name: debian-updates
+#         repo: deb https://deb.debian.org/debian bookworm-updates main contrib non-free
+#         state: present
+#         filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bookworm/Release.gpg
+#       # - name: debian-updates-src
+#       #   repo: deb-src https://ftp.debian.org/debian bookworm-updates main
+#       #   state: present
+#       #   filename: debian-updates
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: http://ftp.debian.org/debian/dists/bookworm/Release.gpg
+#       - name: debian-backports
+#         repo: deb http://deb.debian.org/debian bookworm-backports main contrib non-free
+#         state: present
+#         filename: debian-backports
+#       # - name: debian-backports-src
+#       #   repo: deb-src https://ftp.debian.org/debian bookworm-backports main
+#       #   state: present
+#       #   filename: debian-backports
+#       - name: debian-security
+#         repo: deb http://security.debian.org/debian-security bookworm-security main contrib non-free
+#         # repo: deb https://security.debian.org bookworm-updates main
+#         state: present
+#         filename: debian-security
+#       # - name: debian-security-src
+#       #   repo: deb-src https://security.debian.org bookworm-updates main
+#       #   state: present
+#       #   filename: debian-security
+#       # - name: gluster
+#       #   repo: deb https://download.gluster.org/pub/gluster/glusterfs/9/LATEST/Debian/bookworm/amd64/apt bookworm main
+#       #   state: present
+#       #   filename: gluster
+#       #   key_install: "True"
+#       #   key_state: present
+#       #   key_url: https://download.gluster.org/pub/gluster/glusterfs/9/rsa.pub
+
+#   fedora:
+#     "36":
+#       - name: fedora
+#         description: Fedora $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-debuginfo
+#       #   description: Fedora $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-debug-$releasever&arch=$basearch
+#       #   file: fedora
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       - name: fedora-source
+#         description: Fedora $releasever - Source
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/source/tree/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-source-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       - name: fedora-modular
+#         description: Fedora Modular $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-$releasever&arch=$basearch
+#         file: fedora-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-debug-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: fedora-modular-source
+#       #   description: Fedora Modular $releasever - Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/source/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-source-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates
+#         description: Fedora $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+#         file: fedora-updates
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-debuginfo
+#       #   description: Fedora $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-source
+#       #   description: Fedora $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates-modular
+#         description: Fedora Modular $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f$releasever&arch=$basearch
+#         file: fedora-updates-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-modular-source
+#       #   description: Fedora Modular $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing
+#       #   description: Fedora $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-debuginfo
+#       #   description: Fedora $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-source
+#       #   description: Fedora $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Modular/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-source
+#       #   description: Fedora Modular $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: fedora-cisco-openh264
+#         description: Fedora $releasever openh264 (From Cisco) - $basearch
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch
+#         file: fedora-cisco-openh264
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "yes"
+#       # - name: fedora-cisco-openh264-debuginfo
+#       #   description: Fedora $releasever openh264 (From Cisco) - $basearch - Debug
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-debug-$releasever&arch=$basearch
+#       #   file: fedora-cisco-openh264
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       # - name: docker-ce
+#       #   description: Docker CE Stable - $basearch
+#       #   baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+#       #   file: docker-ce
+#       #   enabled: "yes"
+#       #   gpgcheck: "no"
+#       #   # gpgkey:
+#       #   skip_if_unavailable: "yes"
+
+#     "37":
+#       - name: fedora
+#         description: Fedora $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-debuginfo
+#       #   description: Fedora $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-debug-$releasever&arch=$basearch
+#       #   file: fedora
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       - name: fedora-source
+#         description: Fedora $releasever - Source
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/source/tree/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-source-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       - name: fedora-modular
+#         description: Fedora Modular $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-$releasever&arch=$basearch
+#         file: fedora-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-debug-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: fedora-modular-source
+#       #   description: Fedora Modular $releasever - Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/source/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-source-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates
+#         description: Fedora $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+#         file: fedora-updates
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-debuginfo
+#       #   description: Fedora $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-source
+#       #   description: Fedora $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates-modular
+#         description: Fedora Modular $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f$releasever&arch=$basearch
+#         file: fedora-updates-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-modular-source
+#       #   description: Fedora Modular $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing
+#       #   description: Fedora $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-debuginfo
+#       #   description: Fedora $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-source
+#       #   description: Fedora $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Modular/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-source
+#       #   description: Fedora Modular $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: fedora-cisco-openh264
+#         description: Fedora $releasever openh264 (From Cisco) - $basearch
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch
+#         file: fedora-cisco-openh264
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "yes"
+#       # - name: fedora-cisco-openh264-debuginfo
+#       #   description: Fedora $releasever openh264 (From Cisco) - $basearch - Debug
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-debug-$releasever&arch=$basearch
+#       #   file: fedora-cisco-openh264
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       # - name: docker-ce
+#       #   description: Docker CE Stable - $basearch
+#       #   baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+#       #   file: docker-ce
+#       #   enabled: "yes"
+#       #   gpgcheck: "no"
+#       #   # gpgkey:
+#       #   skip_if_unavailable: "yes"
+
+#     "38":
+#       - name: fedora
+#         description: Fedora $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-debuginfo
+#       #   description: Fedora $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-debug-$releasever&arch=$basearch
+#       #   file: fedora
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       - name: fedora-source
+#         description: Fedora $releasever - Source
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Everything/source/tree/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-source-$releasever&arch=$basearch
+#         file: fedora
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       - name: fedora-modular
+#         description: Fedora Modular $releasever - $basearch
+#         # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/os/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-$releasever&arch=$basearch
+#         file: fedora-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: fedora-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/$basearch/debug/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-debug-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: fedora-modular-source
+#       #   description: Fedora Modular $releasever - Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/releases/$releasever/Modular/source/tree/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-source-$releasever&arch=$basearch
+#       #   file: fedora-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates
+#         description: Fedora $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+#         file: fedora-updates
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-debuginfo
+#       #   description: Fedora $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-source
+#       #   description: Fedora $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: updates-modular
+#         description: Fedora Modular $releasever - $basearch - Updates
+#         # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f$releasever&arch=$basearch
+#         file: fedora-updates-modular
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "no"
+#       # - name: updates-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Updates - Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-modular-source
+#       #   description: Fedora Modular $releasever - Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing
+#       #   description: Fedora $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-debuginfo
+#       #   description: Fedora $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-source
+#       #   description: Fedora $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Everything/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/testing/$releasever/Modular/$basearch/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-debuginfo
+#       #   description: Fedora Modular $releasever - $basearch - Test Updates Debug
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/$basearch/debug/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-debug-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       # - name: updates-testing-modular-source
+#       #   description: Fedora Modular $releasever - Test Updates Source
+#       #   # baseurl: http://download.example/pub/fedora/linux/updates/$releasever/Modular/SRPMS/
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=updates-testing-modular-source-f$releasever&arch=$basearch
+#       #   file: fedora-updates-testing-modular
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "no"
+#       - name: fedora-cisco-openh264
+#         description: Fedora $releasever openh264 (From Cisco) - $basearch
+#         metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-$releasever&arch=$basearch
+#         file: fedora-cisco-openh264
+#         enabled: "yes"
+#         gpgcheck: "yes"
+#         gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#         skip_if_unavailable: "yes"
+#       # - name: fedora-cisco-openh264-debuginfo
+#       #   description: Fedora $releasever openh264 (From Cisco) - $basearch - Debug
+#       #   metalink: https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-debug-$releasever&arch=$basearch
+#       #   file: fedora-cisco-openh264
+#       #   enabled: "no"
+#       #   gpgcheck: "yes"
+#       #   gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+#       #   skip_if_unavailable: "yes"
+#       # - name: docker-ce
+#       #   description: Docker CE Stable - $basearch
+#       #   baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+#       #   file: docker-ce
+#       #   enabled: "yes"
+#       #   gpgcheck: "no"
+#       #   # gpgkey:
+#       #   skip_if_unavailable: "yes"

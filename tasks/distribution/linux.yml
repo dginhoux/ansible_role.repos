@@ -1,0 +1,18 @@
+---
+- name: set ansible_pkg_mgr as yum when dnf is used
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.set_fact:
+    ansible_pkg_mgr: "yum"
+
+
+- name: "Include {{ ansible_pkg_mgr }} tasks"
+  with_first_found:
+    - files:
+        - "manage_{{ ansible_pkg_mgr }}.yml"
+        - "main.yml"
+      paths:
+        - "tasks/sub-tasks"
+  loop_control:
+    loop_var: pkg_mgr_tasks_file
+  ansible.builtin.include_tasks:
+    file: "{{ pkg_mgr_tasks_file }}"

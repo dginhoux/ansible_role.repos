@@ -1,0 +1,9 @@
+---
+- name: "Add rpm key {{ repo.name }}"
+  become: true
+  when:
+    - repo.key is defined
+  ansible.builtin.rpm_key:
+    state: '{{ repo.state | default(omit) }}'
+    key: '{{ repo.key }}'
+    validate_certs: '{{ repo.validate_certs | default(omit) }}'

@@ -1,0 +1,13 @@
+---
+- name: "Add apt key {{ repo.name }}"
+  when:
+    - loop_repo.key_install is defined
+    - loop_repo.key_install | bool
+  ansible.builtin.apt_key:
+    url: '{{ repo.key_url | default(omit) }}'
+    id: '{{ repo.key_id | default(omit) }}'
+    data: '{{ repo.key_data | default(omit) }}'
+    file: '{{ repo.key_file | default(omit) }}'
+    keyserver: '{{ repo.key_keyserver | default(omit) }}'
+    keyring: '{{ repo.key_keyring | default(omit) }}'
+    state: '{{ repo.key_state | default(omit) }}'

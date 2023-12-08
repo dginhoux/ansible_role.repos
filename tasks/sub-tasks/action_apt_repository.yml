@@ -1,0 +1,12 @@
+---
+- name: "Add apt repo {{ repo.name }}"
+  become: true
+  ansible.builtin.apt_repository:
+    codename: '{{ repo.codename | default(omit) }}'
+    repo: '{{ repo.repo }}'
+    state: '{{ repo.state | default(omit) }}'
+    filename: "{{ repo.filename | lower | replace(' ', '-') }}"
+    mode: '{{ repo.mode | default(omit) }}'
+    # update_cache: '{{ repo.update_cache | default(omit) }}'
+    update_cache: false
+    validate_certs: '{{ repo.update_cache | default(omit) }}'
