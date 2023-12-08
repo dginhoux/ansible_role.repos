@@ -41,7 +41,7 @@
       loop: >-
         {{ repos_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
         repos_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) 
+        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
@@ -53,7 +53,7 @@
       loop: >-
         {{ repos_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
         repos_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) 
+        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
@@ -111,4 +111,3 @@
         state: present
         disablerepo: '*'
         disable_gpg_check: true
-
