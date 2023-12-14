@@ -1,13 +1,17 @@
 ---
 - name: Yum, cleanup existing repos files
-  when: repos_cleanup_existing | bool
+  when:
+    - repos_cleanup_existing | bool
   block:
     - name: Yum, identify yum.repos.d/* for cleanup
+      become: true
       ansible.builtin.find:
         paths: /etc/yum.repos.d
         patterns: "*"
       register: old_repos_files_to_delete
+
     - name: Yum, cleanup yum.repos.d/*
+      become: true
       loop: "{{ old_repos_files_to_delete.files | flatten }}"
       loop_control:
         loop_var: file
@@ -83,6 +87,7 @@
     )
   block:
     - name: Yum, remove repos dl pkgs
+      become: true
       when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default(false)
       loop: >-
         {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
@@ -97,6 +102,7 @@
         state: absent
 
     - name: Yum, manage repos dl pkgs
+      become: true
       when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default(false)
       loop: >-
         {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +

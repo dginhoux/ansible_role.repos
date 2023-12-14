@@ -1,5 +1,6 @@
 ---
 - name: "Add apt key {{ repo.name }}"
+  become: true
   when:
     - loop_repo.key_install is defined
     - loop_repo.key_install | bool

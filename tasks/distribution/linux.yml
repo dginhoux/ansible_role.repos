@@ -1,6 +1,7 @@
 ---
 - name: Set ansible_pkg_mgr as yum when dnf is used
-  when: ansible_pkg_mgr == "dnf"
+  when:
+    - ansible_pkg_mgr == "dnf"
   ansible.builtin.set_fact:
     ansible_pkg_mgr: "yum"
 
