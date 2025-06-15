@@ -35,33 +35,33 @@
       ansible.builtin.file:
         path: "{{ file.path }}"
         state: absent
-
+  
 
 - name: Apt, manage repos
   when: >
     (
       repos_list is defined
       and
-      repos_list[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_list[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
     or
     (
       repos_list_host is defined
       and
-      repos_list_host[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_list_host[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
     or
     (
       repos_list_group is defined
       and
-      repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_list_group[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
   block:
     - name: Apt, manage repos
       loop: >-
-        {{ repos_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
+        {{ repos_list[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_list_host[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_list_group[ansible_distribution | lower][ansible_distribution_release | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
@@ -71,9 +71,9 @@
 
     - name: Apt, manage keys
       loop: >-
-        {{ repos_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
+        {{ repos_list[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_list_host[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_list_group[ansible_distribution | lower][ansible_distribution_release | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
@@ -87,28 +87,28 @@
     (
       repos_dl_pkgs_list is defined
       and
-      repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
     or
     (
       repos_dl_pkgs_list_host is defined
       and
-      repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
     or
     (
       repos_dl_pkgs_list_group is defined
       and
-      repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_version | lower] is iterable
+      repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_release | lower] is iterable
     )
   block:
     - name: Apt, remove repos dl pkgs
       become: true
-      when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default(false)
+      when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_release | lower] | default(false)
       loop: >-
-        {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
+        {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_release | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
@@ -119,11 +119,11 @@
 
     - name: Apt, install repos dl pkgs
       become: true
-      when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default(false)
+      when: repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_release | lower] | default(false)
       loop: >-
-        {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_version | lower] | default([]) +
-        repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_version | lower] | default([])
+        {{ repos_dl_pkgs_list[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_dl_pkgs_list_host[ansible_distribution | lower][ansible_distribution_release | lower] | default([]) +
+        repos_dl_pkgs_list_group[ansible_distribution | lower][ansible_distribution_release | lower] | default([])
         | flatten(levels=1) }}
       loop_control:
         loop_var: repo
